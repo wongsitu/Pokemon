@@ -27,16 +27,22 @@ class App extends Component {
                 types: pokemon.data.types,
                 moves: pokemon.data.moves
             })
+            axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.order}/`).then(
+              evolution => {
+                console.log(evolution.data.chain.evolves_to[0].species.name)
+                this.setState({
+                  evolutions:evolution.data.chain.evolves_to[0].species.name
+                })
+              })
         }
-    )
-}
+    )}
 
   render() {
     return (
       <div>
         <Navigation reportMark={this.reportMark}/>
         <Switch>
-          <Route path='/detail' render={(props) => { return <Detail pokemon={this.state.pokemon} order={this.state.order} types={this.state.types} moves={this.state.moves}/> }}/>
+          <Route path='/detail' render={(props) => { return <Detail pokemon={this.state.pokemon} order={this.state.order} types={this.state.types} moves={this.state.moves} evolutions={this.state.evolutions}/> }}/>
           <Route path='/' render={(props) => { return <Homepage/> }}/>
         </Switch>
       </div>
