@@ -31,7 +31,7 @@ class Container extends Component {
                     </div>)
             })
         return (
-            <div class="alignment">
+            <div className="alignment">
                 {pokes}
             </div>
         );

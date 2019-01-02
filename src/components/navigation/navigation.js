@@ -14,7 +14,6 @@ class Navigation extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(e.target.value)
     }
 
     handleClick = (e) => {
@@ -24,6 +23,7 @@ class Navigation extends Component {
     }
 
     render() {
+        let link = `/detail?pokemonObj=${this.state.pokemon}`
         return (
             <nav>
                 <div className="nav-wrapper">
@@ -32,7 +32,7 @@ class Navigation extends Component {
                         <li>
                             <form>
                                 <input className="mdl-textfield__input" type="text" name="pokemon" onChange={this.handleInput}/>
-                                <input type="submit" href='/detail' onClick={this.handleClick} value="search"/>
+                                <input type="submit" href={link} onClick={this.handleClick} value="search"/>
                             </form>
                         </li>
                     </ul>

@@ -11,7 +11,10 @@ class App extends Component {
     super(props)
     this.state={
         pokemon:[],
-        order:''
+        order:'',
+        types:[],
+        evolutions:[],
+        moves: []
       }
   }
 
@@ -20,7 +23,9 @@ class App extends Component {
         pokemon => {
             this.setState({
                 pokemon:pokemon.data,
-                order: pokemon.data.order
+                order: pokemon.data.order,
+                types: pokemon.data.types,
+                moves: pokemon.data.moves
             })
         }
     )
@@ -31,7 +36,7 @@ class App extends Component {
       <div>
         <Navigation reportMark={this.reportMark}/>
         <Switch>
-          <Route path='/detail' render={(props) => { return <Detail pokemon={this.state.pokemon} order={this.state.order}/> }}/>
+          <Route path='/detail' render={(props) => { return <Detail pokemon={this.state.pokemon} order={this.state.order} types={this.state.types} moves={this.state.moves}/> }}/>
           <Route path='/' render={(props) => { return <Homepage/> }}/>
         </Switch>
       </div>

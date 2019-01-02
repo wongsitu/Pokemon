@@ -13,6 +13,15 @@ class Detail extends Component {
 
     render() {
         let link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${this.props.order}.png`
+        if(!this.props.pokemon){
+            let types = this.state.types.map((type, index) => {
+                return (<div key={index} className="card">
+                            {type}
+                        </div>)
+                })
+            console.log(types)
+        }
+        
         return (
             <div class="col s12 m7">
                 <h2 class="header">{this.props.pokemon.name}</h2>
@@ -22,10 +31,9 @@ class Detail extends Component {
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                    </div>
-                    <div class="card-action">
-                    <a href="#">This is a link</a>
+                    <p>Types: </p>
+                    <p>Abilities: </p>
+                    <p>Evolutions: </p>
                     </div>
                 </div>
                 </div>
