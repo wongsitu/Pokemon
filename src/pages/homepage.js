@@ -7,33 +7,38 @@ class Homepage extends Component {
     constructor(props){
         super(props)
         this.state={
-            pokemon:''
+            response:[],
+            pokemon:[]
         }
     }
 
-    handleInput = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
     componentDidMount = () => {
-        axios.get('https://pokeapi.co/api/v2/pokemon/').then(
+        axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20').then(
             response => {
-                console.log(response.data.results)
+                this.setState({
+                    response:response.data.results
+                })
+                console.log(response)
             }
         )
     }
 
-    reportMark = () =>{
-        
+    reportMark = (name) =>{
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(
+            pokemon => {
+                this.setState({
+                    pokemon:pokemon
+                })
+                console.log(pokemon)
+            }
+        )
     }
 
     render() {
         return (
             <div>
-                <Navigation handleInput={this.handleInput}/>
-                <Container/>
+                <Navigation handleInput={this.handleInput} reportMark={this.reportMark}/>
+                <Container response={this.state.response}/>
             </div>
         );
     }
