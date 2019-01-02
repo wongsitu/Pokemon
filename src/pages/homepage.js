@@ -8,7 +8,6 @@ class Homepage extends Component {
         super(props)
         this.state={
             response:[],
-            pokemon:[]
         }
     }
 
@@ -23,21 +22,9 @@ class Homepage extends Component {
         )
     }
 
-    reportMark = (name) =>{
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(
-            pokemon => {
-                this.setState({
-                    pokemon:pokemon
-                })
-                console.log(pokemon)
-            }
-        )
-    }
-
     render() {
         return (
             <div>
-                <Navigation handleInput={this.handleInput} reportMark={this.reportMark}/>
                 <Container response={this.state.response}/>
             </div>
         );

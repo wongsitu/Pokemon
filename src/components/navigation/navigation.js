@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './navigation.css';
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 class Navigation extends Component {
     constructor(props){
@@ -25,12 +27,12 @@ class Navigation extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo">Logo</a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <a href="#" className="brand-logo">Pokemon</a>
+                    <ul id="nav-mobile" className="right">
                         <li>
                             <form>
                                 <input className="mdl-textfield__input" type="text" name="pokemon" onChange={this.handleInput}/>
-                                <input type="submit" onClick={this.handleClick} value="search"/>
+                                <input type="submit" href='/detail' onClick={this.handleClick} value="search"/>
                             </form>
                         </li>
                     </ul>
