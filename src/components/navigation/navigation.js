@@ -27,7 +27,7 @@ class Navigation extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo">Pokemon</a>
+                    <a href="/" className="brand-logo">Pokemon</a>
                     <ul id="nav-mobile" className="right">
                         <li>
                             <form>
