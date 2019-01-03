@@ -27,12 +27,12 @@ class Navigation extends Component {
                 <div className="nav-wrapper">
                     <a href="/" className="brand-logo">Pokemon</a>
                     <ul id="nav-mobile" className="right">
-                        <li class="btn">
+                        <li className="btn">
                             <Link to="/detail">Pagina de Busqueda</Link>
                         </li>
                         <li>
                             <form>
-                                <input className="mdl-textfield__input" type="text" name="pokemon" onChange={this.handleInput}/>
+                                <input id="search" type="search" name="pokemon" onChange={this.handleInput}/>
                                 <input type="submit" onClick={this.handleClick} value="Search"/>
                             </form>
                         </li>

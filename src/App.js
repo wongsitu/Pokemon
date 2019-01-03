@@ -14,18 +14,28 @@ class App extends Component {
         order:'',
         types:[],
         evolutions:[],
-        moves: []
+        moves: [],
+        abilities: []
       }
   }
 
   reportMark = (name) =>{
     axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(
         pokemon => {
+            let move = []
+            for(let i=0;i<pokemon.data.moves.length;i++){
+              move.push(pokemon.data.moves[i].move.name)
+            }
+            let type = []
+            for(let i=0;i<pokemon.data.types.length;i++){
+              type.push(pokemon.data.types[i].type.name)
+            }
+            console.log(type)
             this.setState({
                 pokemon:pokemon.data,
                 order: pokemon.data.order,
-                types: pokemon.data.types,
-                moves: pokemon.data.moves
+                types: type,
+                moves: move,
             })
             axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.order}/`).then(
               evolution => {
