@@ -32,7 +32,7 @@ class Detail extends Component {
                 <div class="card-stacked">
                     <div class="card-content">
                     <p>Types: </p>
-                    <p>Abilities: </p>
+                    <p>Abilities: {}</p>
                     <p>Evolution: {this.props.evolutions}</p>
                     </div>
                 </div>

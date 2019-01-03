@@ -17,7 +17,6 @@ class Homepage extends Component {
                 this.setState({
                     response:response.data.results
                 })
-                console.log(response)
             }
         )
     }

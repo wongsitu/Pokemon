@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './navigation.css';
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Navigation extends Component {
     constructor(props){
@@ -18,21 +18,22 @@ class Navigation extends Component {
 
     handleClick = (e) => {
         e.preventDefault()
-        console.log(this.state.pokemon)
         this.props.reportMark(this.state.pokemon)
     }
 
     render() {
-        let link = `/detail?pokemonObj=${this.state.pokemon}`
         return (
             <nav>
                 <div className="nav-wrapper">
                     <a href="/" className="brand-logo">Pokemon</a>
                     <ul id="nav-mobile" className="right">
+                        <li class="btn">
+                            <Link to="/detail">Pagina de Busqueda</Link>
+                        </li>
                         <li>
                             <form>
                                 <input className="mdl-textfield__input" type="text" name="pokemon" onChange={this.handleInput}/>
-                                <input type="submit" href={link} onClick={this.handleClick} value="search"/>
+                                <input type="submit" onClick={this.handleClick} value="Search"/>
                             </form>
                         </li>
                     </ul>

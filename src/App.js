@@ -29,7 +29,7 @@ class App extends Component {
             })
             axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.order}/`).then(
               evolution => {
-                console.log(evolution.data.chain.evolves_to[0].species.name)
+                console.log(evolution.data.chain.evolves_to)
                 this.setState({
                   evolutions:evolution.data.chain.evolves_to[0].species.name
                 })
