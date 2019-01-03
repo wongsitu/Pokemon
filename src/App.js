@@ -11,7 +11,7 @@ class App extends Component {
     super(props)
     this.state={
         pokemon:[],
-        order:'',
+        id:'',
         types:[],
         evolutions:[],
         moves: [],
@@ -30,20 +30,20 @@ class App extends Component {
             for(let i=0;i<pokemon.data.types.length;i++){
               type.push(pokemon.data.types[i].type.name)
             }
-            console.log(type)
             this.setState({
                 pokemon:pokemon.data,
-                order: pokemon.data.order,
+                id: pokemon.data.id,
                 types: type,
                 moves: move,
             })
-            axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.order}/`).then(
+            axios.get(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.data.id}/`).then(
               evolution => {
                 console.log(evolution.data.chain.evolves_to)
                 this.setState({
                   evolutions:evolution.data.chain.evolves_to[0].species.name
                 })
               })
+              
         }
     )}
 
@@ -52,7 +52,7 @@ class App extends Component {
       <div>
         <Navigation reportMark={this.reportMark}/>
         <Switch>
-          <Route path='/detail' render={(props) => { return <Detail pokemon={this.state.pokemon} order={this.state.order} types={this.state.types} moves={this.state.moves} evolutions={this.state.evolutions}/> }}/>
+          <Route path='/detail' render={(props) => { return <Detail pokemon={this.state.pokemon} id={this.state.id} types={this.state.types} moves={this.state.moves} evolutions={this.state.evolutions}/> }}/>
           <Route path='/' render={(props) => { return <Homepage/> }}/>
         </Switch>
       </div>

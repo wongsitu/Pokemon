@@ -12,17 +12,15 @@ class Detail extends Component {
     }
 
     render() {
-        let link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${this.props.order}.png`
-        let link2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.props.order}.png`
+        let link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${this.props.id}.png`
+        let link2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.props.id}.png`
         if(!this.props.pokemon){
             let types = this.state.types.map((type, index) => {
                 return (<div key={index} className="card">
                             {type}
                         </div>)
                 })
-            console.log(types)
         }
-        console.log(this.props.moves)
         return (
             <div class="col s12 m7">
                 <h2 class="header">{this.props.pokemon.name}</h2>
