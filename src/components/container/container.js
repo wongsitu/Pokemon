@@ -12,7 +12,7 @@ class Container extends Component {
     render() {
         let pokemons = this.props.response
         let pokes = pokemons.map((poke, index) => {
-            return (<div key={index} className="card">
+            return (<div key={index} id="cd">
                         <div className="col s12 m7">
                             <div className="card horizontal">
                                 <div className="card-image">

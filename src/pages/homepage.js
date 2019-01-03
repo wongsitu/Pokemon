@@ -12,7 +12,7 @@ class Homepage extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20').then(
+        axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20').then(
             response => {
                 this.setState({
                     response:response.data.results
